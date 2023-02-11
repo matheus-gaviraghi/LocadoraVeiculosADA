@@ -17,7 +17,7 @@ public class Pequeno extends Veiculo{
 
     @Override
     public String getId() {
-        return this.idPequeno;
+        return this.getPlaca();
     }
 
     public BigDecimal getValorAluguel() {
@@ -26,9 +26,8 @@ public class Pequeno extends Veiculo{
 
     @Override
     public String toString() {
-        return super.toString() +
+        return this.idPequeno + " -> " + super.toString() +
                 ", Tipo: Pequeno" +
-                ", ID: " + this.idPequeno +
                 ", Valor diária: R$ " + this.valorAluguel + ",00";
     }
 }

@@ -17,7 +17,7 @@ public class SUV extends Veiculo {
 
     @Override
     public String getId() {
-        return this.idSUV;
+        return this.getPlaca();
     }
 
     public BigDecimal getValorAluguel() {

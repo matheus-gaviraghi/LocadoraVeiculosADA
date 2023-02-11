@@ -22,7 +22,7 @@ public class Medio extends Veiculo{
 
     @Override
     public String getId() {
-        return this.idMedio;
+        return this.getPlaca();
     }
 
     @Override

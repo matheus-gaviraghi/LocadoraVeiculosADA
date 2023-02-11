@@ -52,9 +52,9 @@ public class RepositoryEmMemoriaGenerico<T extends Entidade> implements Reposito
     }
 
     @Override
-    public T consultar(String id) {
+    public T consultar(String placa) {
         for (T entidade: dados) {
-            if (entidade.getId().equals(id)) {
+            if (entidade.getId().equals(placa)) {
                 return entidade;
             }
         }
