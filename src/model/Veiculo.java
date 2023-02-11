@@ -1,10 +1,17 @@
-public abstract class Veiculo {
+package model;
+
+public abstract class Veiculo implements Entidade{
+
+    private static final long serialVersionUID = 1L;
+
     private Integer ano;
     private String marca;
     private String modelo;
     private String placa;
     private Double quilometragem;
     private Double cilindradas;
+
+    private boolean isDisponivel;
 
     public Veiculo(Integer ano, String marca, String modelo,
                    String placa, Double quilometragem, Double cilindradas) {
@@ -14,6 +21,7 @@ public abstract class Veiculo {
         this.placa = placa;
         this.quilometragem = quilometragem;
         this.cilindradas = cilindradas;
+        this.isDisponivel = true;
     }
 
     public Integer getAno() {
@@ -40,15 +48,21 @@ public abstract class Veiculo {
         return cilindradas;
     }
 
+    public boolean isDisponivel() {
+        return isDisponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        isDisponivel = disponivel;
+    }
+
     @Override
     public String toString() {
-        return "Veiculo{" +
-                "ano=" + ano +
-                ", marca='" + marca + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", placa='" + placa + '\'' +
-                ", quilometragem=" + quilometragem +
-                ", cilindradas=" + cilindradas +
-                '}';
+        return  "Ano: " + ano +
+                ", Marca: " + marca +
+                ", Modelo: " + modelo +
+                ", Placa: " + placa +
+                ", Quilometragem: " + quilometragem +
+                ", Cilindradas: " + cilindradas;
     }
 }
