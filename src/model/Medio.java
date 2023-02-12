@@ -35,9 +35,8 @@ public class Medio extends Veiculo{
 
     @Override
     public String toString() {
-        return super.toString() +
+        return this.idMedio + " -> " + super.toString() +
                 ", Tipo: Médio" +
-                ", ID: " + this.idMedio +
                 ", Valor diária: R$ " + this.valorAluguel + ",00";
     }
 

@@ -34,9 +34,8 @@ public class SUV extends Veiculo {
 
     @Override
     public String toString() {
-        return super.toString() +
+        return this.idSUV + " -> " + super.toString() +
                 ", Tipo: SUV" +
-                ", ID: " + this.idSUV +
                 ", Valor diária: R$ " + this.valorAluguel + ",00";
     }
 }
