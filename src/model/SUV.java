@@ -25,6 +25,14 @@ public class SUV extends Veiculo {
     }
 
     @Override
+    public String tipoDeVeiculo() {
+        return "SUV";
+    }
+
+    @Override
+    public String getNomeCadastro(){ return this.idSUV; }
+
+    @Override
     public String toString() {
         return super.toString() +
                 ", Tipo: SUV" +

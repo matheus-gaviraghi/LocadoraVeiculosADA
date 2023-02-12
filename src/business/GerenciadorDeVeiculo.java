@@ -16,18 +16,9 @@ public class GerenciadorDeVeiculo<T extends Veiculo> {
     }
 
     public void adicionarVeiculo(T veiculo){
-        String tipoVeiculo;
 
-        if(veiculo instanceof Pequeno){
-            tipoVeiculo = "Pequeno";
-        } else if (veiculo instanceof Medio) {
-            tipoVeiculo = "Médio";
-        } else {
-            tipoVeiculo = "SUV";
-        }
-
-        if(existeVeiculo(veiculo.getPlaca())){
-            throw new RuntimeException("Já existe um registro do tipo %s com a placa %s".formatted(tipoVeiculo, veiculo.getPlaca()));
+        if(existeVeiculo(veiculo.getId())){
+            throw new RuntimeException("Já existe um registro de veículo do tipo %s com a placa %s".formatted(veiculo.tipoDeVeiculo(), veiculo.getPlaca()));
         }
 
         repository.salvar(veiculo);
@@ -37,15 +28,15 @@ public class GerenciadorDeVeiculo<T extends Veiculo> {
         return repository.consultar(placa) != null;
     }
 
-    public Veiculo consultarPorPlaca(String placa){
-        return repository.consultar(placa);
+    public Veiculo consultarPorNomeCadastro(String idTipoVeiculo){
+        return repository.consultar(idTipoVeiculo);
     }
 
-    public void editarVeiculo(String placa, boolean disponibilidade){
-        Veiculo veiculo = consultarPorPlaca(placa);
+    public void editarVeiculo(String idTipoVeiculo, boolean disponibilidade){
+        Veiculo veiculo = consultarPorNomeCadastro(idTipoVeiculo);
 
         if(veiculo == null){
-            throw new RuntimeException("Não foi encontrado um veículo com a placa " + placa + " informada");
+            throw new RuntimeException("Não foi encontrado um veículo com o identificador " + idTipoVeiculo + " informado.");
         }
 
         veiculo.setDisponivel(disponibilidade);
@@ -57,10 +48,24 @@ public class GerenciadorDeVeiculo<T extends Veiculo> {
     }
 
     public List<Veiculo> listarTodos(){
-        return repository.listarTodos();
+        List<Veiculo> lista = repository.listarTodos();
+
+        if(lista.isEmpty()){
+            System.out.println("Lista de veículos vazia!");
+            return null;
+        }
+
+        return lista;
     }
 
     public List<Veiculo> listarVeiculosDisponiveis(){
-        return repository.consultarVeiculosDisponiveis();
+        List<Veiculo> listaDisponiveis = repository.consultarVeiculosDisponiveis();
+
+        if(listaDisponiveis.isEmpty()){
+            System.out.println("Lista de veículos disponíveis vazia!");
+            return null;
+        }
+
+        return listaDisponiveis;
     }
 }

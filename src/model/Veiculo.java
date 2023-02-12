@@ -1,5 +1,7 @@
 package model;
 
+import java.math.BigDecimal;
+
 public abstract class Veiculo implements Entidade{
 
     private static final long serialVersionUID = 1L;
@@ -56,6 +58,9 @@ public abstract class Veiculo implements Entidade{
         isDisponivel = disponivel;
     }
 
+    public abstract BigDecimal getValorAluguel();
+
+    public abstract String tipoDeVeiculo();
     @Override
     public String toString() {
         return  "Ano: " + ano +

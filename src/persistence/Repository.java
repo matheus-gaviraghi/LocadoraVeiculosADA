@@ -9,7 +9,9 @@ public interface Repository<T> {
 
     boolean deletar(String id);
 
-    T consultar(String placa);
+    T consultar(String id);
+
+    T consultarPorNome(String nome);
 
     List<T> listarTodos();
 }

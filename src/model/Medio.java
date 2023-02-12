@@ -26,6 +26,14 @@ public class Medio extends Veiculo{
     }
 
     @Override
+    public String getNomeCadastro(){ return this.idMedio; }
+
+    @Override
+    public String tipoDeVeiculo() {
+        return "Médio";
+    }
+
+    @Override
     public String toString() {
         return super.toString() +
                 ", Tipo: Médio" +

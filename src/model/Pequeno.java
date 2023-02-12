@@ -20,8 +20,16 @@ public class Pequeno extends Veiculo{
         return this.getPlaca();
     }
 
+    @Override
+    public String getNomeCadastro(){ return this.idPequeno; }
+
     public BigDecimal getValorAluguel() {
         return this.valorAluguel;
+    }
+
+    @Override
+    public String tipoDeVeiculo() {
+        return "Pequeno";
     }
 
     @Override
