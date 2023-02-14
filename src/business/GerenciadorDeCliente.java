@@ -52,4 +52,15 @@ public class GerenciadorDeCliente <T extends Cliente> {
     public List<Cliente> listarTodos(){
         return repository.listarTodos();
     }
+
+    public List<Cliente> listarClientesPorParteNome(String nome){
+        List<Cliente> listaClientes = repository.consultarPorParteNome(nome);
+
+        if(listaClientes.isEmpty()){
+            System.out.println("Não há clientes com nome similar à esse!");
+            return null;
+        }
+
+        return listaClientes;
+    }
 }

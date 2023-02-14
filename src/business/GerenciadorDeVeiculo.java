@@ -29,7 +29,7 @@ public class GerenciadorDeVeiculo<T extends Veiculo> {
     }
 
     public Veiculo consultarPorNomeCadastro(String idTipoVeiculo){
-        return repository.consultar(idTipoVeiculo);
+        return repository.consultarPorNome(idTipoVeiculo);
     }
 
     public void editarVeiculo(String idTipoVeiculo, boolean disponibilidade){
@@ -67,5 +67,16 @@ public class GerenciadorDeVeiculo<T extends Veiculo> {
         }
 
         return listaDisponiveis;
+    }
+
+    public List<Veiculo> listarVeiculosPorParteNome(String nome){
+        List<Veiculo> listaVeiculos = repository.consultarPorParteNome(nome);
+
+        if(listaVeiculos.isEmpty()){
+            System.out.println("Não há veículos com nome similar à esse!");
+            return null;
+        }
+
+        return listaVeiculos;
     }
 }

@@ -50,8 +50,24 @@ public class AppLocadora {
         System.out.println("\nVeiculos disponíveis para alugar:");
         gerenciadorDeVeiculo.listarVeiculosDisponiveis().forEach(System.out::println);;
 
+        // Alteração de dados de veículos cadastrados
+        gerenciadorDeVeiculo.editarVeiculo("P-0", false);
+        System.out.println("\nDeixando o veículo P-0 indisponível momentaneamente: ");
+        System.out.println("Veiculos disponíveis para alugar:");
+        gerenciadorDeVeiculo.listarVeiculosDisponiveis().forEach(System.out::println);
+
+        // Deixando o veículo P-0 novamente disponível
+        gerenciadorDeVeiculo.editarVeiculo("P-0", true);
+
         // Descomente abaixo para testar a adição de um mesmo veículo novamente no registro
         // gerenciadorDeVeiculo.adicionarVeiculo(carroPequeno3);
+
+        // Realizando pesquisa de veículos por parte do identificador de cadastro
+        System.out.println("\nRealizando pesquisa de veículos com id de inicial P:");
+        gerenciadorDeVeiculo.listarVeiculosPorParteNome("P").forEach(System.out::println);
+        // Realizando pesquisa de veículos por parte do identificador de cadastro
+        System.out.println("\nRealizando pesquisa de veículos com id de inicial M:");
+        gerenciadorDeVeiculo.listarVeiculosPorParteNome("M").forEach(System.out::println);
 
         // ###########################################################
         //                    Manipulação de clientes
@@ -76,8 +92,23 @@ public class AppLocadora {
         System.out.println("\nClientes registrados: ");
         gerenciadorDeCliente.listarTodos().forEach(System.out::println);
 
+        // Alteração do cadastro de clientes
+        gerenciadorDeCliente.editarCliente("Matheus Gaviraghi", "(55) 98401-4827");
+        gerenciadorDeCliente.editarCliente("La Casa de Pastel", "(55) 3512-3258");
+
+        System.out.println("\nLista de clientes após alteração dos dados:");
+        gerenciadorDeCliente.listarTodos().forEach(System.out::println);
+
+        // Descomente abaixo para testar a alteração de um cliente que não existe
+        // gerenciadorDeCliente.editarCliente("Fulano De Tal", "(55) 3232-3232");
+
         // Descomente abaixo para testar a adição de um mesmo cliente no registro
         // gerenciadorDeCliente.adicionarCliente(pessoaFisica1);
+
+        // Realizando pesquisa de clientes por parte do identificador de cadastro
+        System.out.println("\nRealizando pesquisa de clientes com nome Math:");
+        gerenciadorDeCliente.listarClientesPorParteNome("Math").forEach(System.out::println);
+        System.out.println();
 
         // ###########################################################
         //                    Manipulação de locações

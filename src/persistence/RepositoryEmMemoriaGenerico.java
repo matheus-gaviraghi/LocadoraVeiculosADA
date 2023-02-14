@@ -72,6 +72,23 @@ public class RepositoryEmMemoriaGenerico<T extends Entidade> implements Reposito
     }
 
     @Override
+    public List<T> consultarPorParteNome(String nome) {
+        int tamanhoNome = nome.length();
+        List<T> listaDeObjetosEncontrados = new ArrayList<>();
+
+        for (T entidade: dados) {
+            String nomeCadastro = entidade.getNomeCadastro();
+            if(tamanhoNome <= nomeCadastro.length()) {
+                if (nomeCadastro.substring(0, tamanhoNome).equals(nome)) {
+                    listaDeObjetosEncontrados.add(entidade);
+                }
+            }
+        }
+        return listaDeObjetosEncontrados;
+    }
+
+
+    @Override
     public List<T> listarTodos() {
         return new ArrayList<>(dados);
     }

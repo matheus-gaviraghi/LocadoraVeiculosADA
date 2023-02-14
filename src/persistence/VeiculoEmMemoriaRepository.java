@@ -24,4 +24,5 @@ public class VeiculoEmMemoriaRepository extends RepositoryEmMemoriaGenerico<Veic
                 .filter(veiculo -> veiculo.isDisponivel())
                 .collect(Collectors.toList());*/
     }
+
 }

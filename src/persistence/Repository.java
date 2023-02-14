@@ -13,5 +13,7 @@ public interface Repository<T> {
 
     T consultarPorNome(String nome);
 
+    List<T> consultarPorParteNome(String nome);
+
     List<T> listarTodos();
 }
